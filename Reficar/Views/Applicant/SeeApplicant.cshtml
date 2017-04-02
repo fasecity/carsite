@@ -9,12 +9,16 @@
 <h2>
     SeeApplicant
 </h2>
+@using (Html.BeginForm())
+{
+
 <div class="jumbotron">
     <p class="form-inline">
         Search <span class="glyphicon glyphicon-sound-stereo"></span> @Html.TextBox("SearchString", null, new { @class = "form-control" })
         <input class="btn btn-info" type="submit" value="Search" />
     </p>    
 </div>
+}
 @Html.PagedListPager(Model, page => Url.Action("SeeApplicant", new { page }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded })   
 
 <table class="table">

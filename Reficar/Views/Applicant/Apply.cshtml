@@ -1,0 +1,92 @@
+﻿@model Reficar.Models.Applicant
+@{
+    ViewBag.Title = "Apply";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Apply</h2>
+
+@*allways use controller name first then viewpage folder eg Music*@
+@using (Html.BeginForm("Apply", "Applicant", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        @*create lambda expression that binds models to properties*@
+        @Html.LabelFor(model => model.FirstName)
+        @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.FirstName)
+    </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName)
+            @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.LastName)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Age)
+            @Html.TextBoxFor(model => model.Age, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Age)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email)
+            @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Province)
+            @Html.TextBoxFor(model => model.Province, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Province)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.PhoneNumber)
+            @Html.TextBoxFor(model => model.PhoneNumber, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.PhoneNumber)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.MonthlyIncome)
+            @Html.TextBoxFor(model => model.MonthlyIncome, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.MonthlyIncome)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.DesiredLoanAmmount)
+            @Html.TextBoxFor(model => model.DesiredLoanAmmount, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.DesiredLoanAmmount)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CarYear)
+            @Html.TextBoxFor(model => model.CarYear, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.CarYear)
+
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CarMake)
+            @Html.TextBoxFor(model => model.CarMake, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.CarMake)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CarModel)
+            @Html.TextBoxFor(model => model.CarModel, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.CarModel)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Carkilometer)
+            @Html.TextBoxFor(model => model.Carkilometer, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Carkilometer)
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CarInsurance)
+            @Html.TextBoxFor(model => model.CarInsurance, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.CarInsurance)
+        </div>
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.DateTime)
+            @Html.TextBoxFor(model => model.DateTime, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.DateTime)
+        </div>*@
+        <button type="submit" value="save" class="btn btn-success">Save</button>
+
+}
+@*this is how you acticate jquery validate with validation msg for call this script
+    definition is in appstart bundle config*@
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

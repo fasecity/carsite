@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+   
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -21,4 +22,80 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+#stage {
+    background-image: url('../assets/pexels-photo-105234.jpeg');
+    /*height:100% this uses the id namesd stage inside of body element inside of the index page*/
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    /*background-color: #999;*/
+    background-color: #ffffff;
+    color: #808080;
+}
+.navbar-inverse {
+    background-color:rgba(1, 1, 1, 0.59);
+    
+    border-color: #080808;
+}
+.navbar-inverse .navbar-brand {
+    color: #ffffff;
+}
+.navbar-brand {
+    float: left;
+    padding: 15px 15px;
+    font-size: 30px;
+    line-height: 20px;
+    font-family: 'Raleway', sans-serif;
+
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #ffffff;
+    font-size: 20px;
+    font-family: 'Raleway', sans-serif;
+
+    /*font-family: 'Lato', sans-serif;*/
+}
+#stage-caption{
+    font-size:17px;
+    font-weight:200;
+   padding-top:70px;
+    
+    max-width:60rem;
+    /*line-height: 73px;*/
+    margin:0 auto;
+    text-align:center;
+}
+#stage-caption h1{
+           /*color: rgb(187, 255, 230);*/
+    color:#9ffa8e;
+    font-weight:bold;
+     font-size: 64px;
+    /*line-height: 73px;*/
+    text-shadow: none;
+
+}
+.btn-lg {
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 40px;
+}
+
+.btn-success {
+    color: #ffffff;
+    /*background-color:#ff3364;*/
+    background-color: #2bb77a;
+    border-color:#2bb77a;
+}
+.jumbotron {
+    padding: 30px;
+    margin-bottom: 30px;
+    font-size: 17px;
+    font-weight: 200;
+    line-height: 2.1428571435;
+    color: white;
+    background-color: rgba(23, 9, 9, 0.58);
 }

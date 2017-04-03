@@ -5,69 +5,69 @@
     ViewBag.Title = "SeeApplicant";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div id="apply">
+    <h2>
+        SeeApplicant
+    </h2>
+    @using (Html.BeginForm())
+    {
 
-<h2>
-    SeeApplicant
-</h2>
-@using (Html.BeginForm())
-{
+        <div class="jumbotron">
+            <p class="form-inline">
+                Search <span class="glyphicon glyphicon-sound-stereo"></span> @Html.TextBox("SearchString", null, new { @class = "form-control" })
+                <input class="btn btn-info" type="submit" value="Search" />
+            </p>
+        </div>
+    }
+    @Html.PagedListPager(Model, page => Url.Action("SeeApplicant", new { page }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded })
 
-<div class="jumbotron">
-    <p class="form-inline">
-        Search <span class="glyphicon glyphicon-sound-stereo"></span> @Html.TextBox("SearchString", null, new { @class = "form-control" })
-        <input class="btn btn-info" type="submit" value="Search" />
-    </p>    
-</div>
-}
-@Html.PagedListPager(Model, page => Url.Action("SeeApplicant", new { page }), new PagedListRenderOptions() { Display = PagedListDisplayMode.IfNeeded })   
-
-<table class="table">
-    <thead>
-        <tr>
-            @*<th>Audiotaco</th>*@
-            <th>@Html.ActionLink("FirstName", "SeeApplicant", new { sortOrder = ViewBag.artistSort })</th>
-            <th>@Html.ActionLink("LastName", "SeeApplicant", new { sortOrder = ViewBag.genreSort })</th>
-            <th>@Html.ActionLink("DateTime", "SeeApplicant", new { sortOrder = ViewBag.nameSort })</th> @*action link element contains name controller and the viewbag*@
-            <th>Phone number</th>
-            <th>Age</th>
-            <th>Province</th>
-            <th>Car Make</th>
-            <th>Car model</th>
-            <th>Car Year</th>
-            <th>Kilometers</th>
-            <th>Desired Loan($)</th>
-            <th>Monthly Income</th>
-            <th>Car Insurance</th>
-            <th>Email</th>
-        </tr>
-    </thead>
-    <tbody>
-        @*this is amazing this iterates using a foreach and displays the atributes of the model*@
-        @foreach (var item in Model)
-        {
+    <table class="table">
+        <thead>
             <tr>
-                @*<th>@Html.DisplayFor(model => item.Id)</th>*@
-                <td>@Html.DisplayFor(model => item.FirstName)</td>
-                <td>@Html.DisplayFor(model => item.LastName)</td>
-                <td>@Html.DisplayFor(model => item.DateTime)</td>
-                <td>@Html.DisplayFor(model => item.PhoneNumber)</td>
-                <td>@Html.DisplayFor(model => item.Age)</td>
-                <td>@Html.DisplayFor(model => item.Province)</td>
-                <td>@Html.DisplayFor(model => item.CarMake)</td>
-                <td>@Html.DisplayFor(model => item.CarModel)</td>
-                <td>@Html.DisplayFor(model => item.CarYear)</td>
-                <td>@Html.DisplayFor(model => item.Carkilometer)</td>
-                <td>@Html.DisplayFor(model => item.DesiredLoanAmmount)</td>
-                <td>@Html.DisplayFor(model => item.MonthlyIncome)</td>
-                <td>@Html.DisplayFor(model => item.CarInsurance)</td>
-                <td>@Html.DisplayFor(model => item.Email)</td>
-                
+                @*<th>Audiotaco</th>*@
+                <th>@Html.ActionLink("FirstName", "SeeApplicant", new { sortOrder = ViewBag.artistSort })</th>
+                <th>@Html.ActionLink("LastName", "SeeApplicant", new { sortOrder = ViewBag.genreSort })</th>
+                <th>@Html.ActionLink("DateTime", "SeeApplicant", new { sortOrder = ViewBag.nameSort })</th> @*action link element contains name controller and the viewbag*@
+                <th>Phone number</th>
+                <th>Age</th>
+                <th>Province</th>
+                <th>Car Make</th>
+                <th>Car model</th>
+                <th>Car Year</th>
+                <th>Kilometers</th>
+                <th>Desired Loan($)</th>
+                <th>Monthly Income</th>
+                <th>Car Insurance</th>
+                <th>Email</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @*this is amazing this iterates using a foreach and displays the atributes of the model*@
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @*<th>@Html.DisplayFor(model => item.Id)</th>*@
+                    <td>@Html.DisplayFor(model => item.FirstName)</td>
+                    <td>@Html.DisplayFor(model => item.LastName)</td>
+                    <td>@Html.DisplayFor(model => item.DateTime)</td>
+                    <td>@Html.DisplayFor(model => item.PhoneNumber)</td>
+                    <td>@Html.DisplayFor(model => item.Age)</td>
+                    <td>@Html.DisplayFor(model => item.Province)</td>
+                    <td>@Html.DisplayFor(model => item.CarMake)</td>
+                    <td>@Html.DisplayFor(model => item.CarModel)</td>
+                    <td>@Html.DisplayFor(model => item.CarYear)</td>
+                    <td>@Html.DisplayFor(model => item.Carkilometer)</td>
+                    <td>@Html.DisplayFor(model => item.DesiredLoanAmmount)</td>
+                    <td>@Html.DisplayFor(model => item.MonthlyIncome)</td>
+                    <td>@Html.DisplayFor(model => item.CarInsurance)</td>
+                    <td>@Html.DisplayFor(model => item.Email)</td>
 
+                </tr>
+            }
+        </tbody>
+    </table>
 
+</div>
 
 
 

@@ -1,6 +1,10 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background: #ee0979; /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #ee0979 , #ff6a00); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #ee0979 , #ff6a00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color:white;    
    
 }
 
@@ -98,4 +102,9 @@ textarea {
     line-height: 2.1428571435;
     color: white;
     background-color: rgba(23, 9, 9, 0.58);
+}
+#apply{
+    background-color:white;
+    color:black;
+
 }

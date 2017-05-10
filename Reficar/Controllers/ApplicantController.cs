@@ -3,6 +3,8 @@ using Reficar.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 
@@ -11,6 +13,7 @@ namespace Reficar.Controllers
     public class ApplicantController : Controller
     {
         // GET: seeApplicant
+        [Authorize(Users = "mo@test.com")]
         public ActionResult SeeApplicant(string sortOrder, string searchString, int? page)
         {
             ApplicationDbContext _context = new ApplicationDbContext();
@@ -42,7 +45,7 @@ namespace Reficar.Controllers
 
 
                 default:
-                    sortMusic = sortMusic.OrderBy(m => m.DateTime);
+                    sortMusic = sortMusic.OrderBy(m => m.FirstName);
                     break;
 
             }
@@ -66,7 +69,7 @@ namespace Reficar.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Apply(Applicant viewModel)
+        public async System.Threading.Tasks.Task<ActionResult> Apply(Applicant viewModel)
         {
             if (!ModelState.IsValid)
             {
@@ -94,6 +97,8 @@ namespace Reficar.Controllers
                 db.Applicants.Add(app);
                 //save changes
                 db.SaveChanges();
+
+
             }
             catch (Exception ex)
             {
@@ -101,7 +106,37 @@ namespace Reficar.Controllers
                 throw ex;
             }
 
+            ///////////////////////////email///////////////////////////////
+            var body = "<p>Email From new client: {0} ({1})</p><p>Message:</p><p>{2}</p>";
+            var message = new MailMessage();
+            message.To.Add(new MailAddress("audiotrash112@gmail.com"));  // replace with valid value recipient
+            message.From = new MailAddress("audiotrash112@gmail.com");  // replace with valid value sender
+            message.Subject = "Your email subject";
+            message.Body = string.Format(body, viewModel.Email, viewModel.FirstName, viewModel.PhoneNumber, viewModel.DateTime, viewModel.CarMake,
+                viewModel.CarYear, viewModel.Province, viewModel.CarInsurance );
+            message.IsBodyHtml = true;
+
+            using (var smtp = new SmtpClient())
+            {
+                var credential = new NetworkCredential
+                {
+                    UserName = "audiotrash112@gmail.com",  // replace with valid value
+                    Password = "100590063Q00!"  // replace with valid value
+                };
+                smtp.Credentials = credential;
+                smtp.Host = " smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.EnableSsl = true;
+                await smtp.SendMailAsync(message);
+            }
+            //////////////////////////////////////////////////////////////
+
             return RedirectToAction("About", "Home");
         }
+
+
+
+        /////////////////////////////
+
     }
 }

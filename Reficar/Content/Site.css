@@ -1,9 +1,8 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background: #ee0979; /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #ee0979 , #ff6a00); /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #ee0979 , #ff6a00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #15443d;
+
     color:white;    
    
 }
@@ -29,7 +28,7 @@ textarea {
 }
 
 #stage {
-    background-image: url('../assets/pexels-photo-105234.jpeg');
+    background-image: url('../assets/pexels-photo-201393.jpeg');
     /*height:100% this uses the id namesd stage inside of body element inside of the index page*/
     background-position: center center;
     background-repeat: no-repeat;
@@ -37,7 +36,7 @@ textarea {
     background-size: cover;
     /*background-color: #999;*/
     background-color: #ffffff;
-    color: #808080;
+    color: #d9ffc6;
 }
 .navbar-inverse {
     background-color:rgba(1, 1, 1, 0.59);
@@ -74,7 +73,7 @@ textarea {
 }
 #stage-caption h1{
            /*color: rgb(187, 255, 230);*/
-    color:#9ffa8e;
+        color: #cdd5cc;
     font-weight:bold;
      font-size: 64px;
     /*line-height: 73px;*/
@@ -101,10 +100,60 @@ textarea {
     font-weight: 200;
     line-height: 2.1428571435;
     color: white;
-    background-color: rgba(23, 9, 9, 0.58);
+    background-color: rgba(9, 23, 23, 0.58);
 }
 #apply{
     background-color:white;
     color:black;
 
+}
+/*//////////////*/
+.feature-content{
+    padding:0rem 0;
+    overflow:hidden;
+
+}
+.feature-content img {
+    margin-bottom:-6rem;
+}
+.feature-two{
+    background-color: rgba(34, 54, 55, 0.23);
+    color: #cdd5cc;
+    border-radius:.9rem;
+}
+.feature-dark{
+    background-color:#8f9092;
+    color:white;
+}
+@media screen and (min-width:991px){
+    .feature-content{
+        display:flex;
+        align-items:center;
+    }
+
+}
+.feature-enter{
+   text-align:center;
+   align-items:center;
+}
+.feature-pilar{
+   text-align:center;
+   align-items:center;
+}
+.field-validation-error{
+    color:#cc8686;
+}
+.badge {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+    color: #ffffff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    background-color: #be3737;
+    border-radius: 10px;
 }

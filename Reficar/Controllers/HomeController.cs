@@ -26,5 +26,12 @@ namespace Reficar.Controllers
 
             return View();
         }
+        [Authorize(Users = "mo@test.com")]
+        public ActionResult Portal()
+        {
+            ViewBag.Message = "Your portal page.";
+
+            return View();
+        }
     }
 }

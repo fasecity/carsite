@@ -11,14 +11,15 @@ namespace Reficar.Models
 
         public int Id { get; set; }
 
+
         [Required]
         [StringLength(100)]
-        [RegularExpression(@"^[a-zA-Z]+(([\'\,\.\-][a-zA-Z])?[a-zA-Z]*)*$")]
+        [RegularExpression(@"^[a-zA-Z]+(([\'\,\.\-][a-zA-Z])?[a-zA-Z]*)*$", ErrorMessage = "Names can only contain letters")]
         public string FirstName { get; set; }
 
         [Required]
         [StringLength(100)]
-        [RegularExpression(@"^[a-zA-Z]+(([\'\,\.\-][a-zA-Z])?[a-zA-Z]*)*$")]
+        [RegularExpression(@"^[a-zA-Z]+(([\'\,\.\-][a-zA-Z])?[a-zA-Z]*)*$", ErrorMessage = "Names can only contain letters")]
         public string LastName { get; set; }
 
         [Required]
@@ -33,7 +34,7 @@ namespace Reficar.Models
         [Required]
         //[MaxLength(10)]
         //[MinLength(10)]doesnt work on non string types
-        [RegularExpression(@"^\(\d{3}\) ?\d{3}( |-)?\d{4}|^\d{3}( |-)?\d{3}( |-)?\d{4}")]
+        [RegularExpression(@"^\(\d{3}\) ?\d{3}( |-)?\d{4}|^\d{3}( |-)?\d{3}( |-)?\d{4}", ErrorMessage = "Please enter numbers in this format 4165556666")]
         public double PhoneNumber { get; set; }
 
         [Required]

@@ -120,8 +120,8 @@ namespace Reficar.Controllers
             {
                 var credential = new NetworkCredential
                 {
-                    UserName = "audiotrash112@gmail.com",  // replace with valid value
-                    Password = "100590063Q00!"  // replace with valid value
+                    UserName = "",  // replace with valid value
+                    Password = ""  // replace with valid value
                 };
                 smtp.Credentials = credential;
                 smtp.Host = " smtp.gmail.com";
